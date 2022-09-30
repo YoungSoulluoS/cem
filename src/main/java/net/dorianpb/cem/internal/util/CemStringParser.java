@@ -8,8 +8,10 @@ import net.dorianpb.cem.internal.util.CemStringParser.ParsedFunction.ParsedFunct
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.entity.mob.PiglinEntity;
 
 import java.lang.invoke.WrongMethodTypeException;
 import java.security.InvalidParameterException;
@@ -585,7 +587,10 @@ public class CemStringParser{
 		IS_RIDING,
 		IS_SNEAKING,
 		IS_SPRINTING,
+		IS_SITTING,
 		IS_WET,
+		IS_DANCING,
+		IS_SLEEPING,
 		TRUE,
 		FALSE,
 		;
@@ -607,7 +612,10 @@ public class CemStringParser{
 				case IS_RIDING -> env.getEntity().hasVehicle();
 				case IS_SNEAKING -> env.getEntity().isSneaking();
 				case IS_SPRINTING -> env.getEntity().isSprinting();
+				case IS_SITTING -> env.getTameableEntity().isInSittingPose();
 				case IS_WET -> env.getEntity().isWet();
+				case IS_DANCING -> env.getPiglinEntity().isDancing();
+				case IS_SLEEPING -> env.getLivingEntity().isSleeping();
 				case TRUE -> true;
 				case FALSE -> false;
 			};
@@ -1053,6 +1061,14 @@ public class CemStringParser{
 		
 		private Entity getEntity(){
 			return entity;
+		}
+		
+		private TameableEntity getTameableEntity(){
+			return (TameableEntity) entity;
+		}
+		
+		private PiglinEntity getPiglinEntity(){
+			return (PiglinEntity) entity;
 		}
 		
 		private LivingEntity getLivingEntity(){
