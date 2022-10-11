@@ -580,7 +580,7 @@ public class CemStringParser{
 		IS_HURT,
 		IS_IN_LAVA,
 		IS_IN_WATER,
-		IS_TOUCHING_WATER,
+		IS_SUBMERGED_IN_WATER,
 		IS_INVISIBLE,
 		IS_ON_GROUND,
 		IS_RIDDEN,
@@ -604,8 +604,8 @@ public class CemStringParser{
 				case IS_GLOWING -> env.getEntity().isGlowing();
 				case IS_HURT -> env.getLivingEntity().hurtTime != 0;
 				case IS_IN_LAVA -> env.getEntity().isInLava();
-				case IS_IN_WATER -> env.getEntity().isSubmergedInWater();
-				case IS_TOUCHING_WATER -> env.getEntity().isTouchingWater();
+				case IS_IN_WATER -> env.getEntity().isTouchingWater();
+				case IS_SUBMERGED_IN_WATER -> env.getEntity().isSubmergedInWater();
 				case IS_INVISIBLE -> env.getEntity().isInvisible();
 				case IS_ON_GROUND -> env.getEntity().isOnGround();
 				case IS_RIDDEN -> env.getEntity().hasPassengers();
