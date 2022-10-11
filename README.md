@@ -36,11 +36,13 @@ assets/dorianpb/cem/za/waurdo/creeper.jem", etc.
 
 * For now, only the following entities are supported (in alphabetical order):
 	* Armor Stands
+	* Axolotl
 	* Banners
 	* Bats
 	* Bees
 	* Blazes
 	* Cats
+	* Cod
 	* Cows
 	* Chicken
 	* Creepers
@@ -64,8 +66,11 @@ assets/dorianpb/cem/za/waurdo/creeper.jem", etc.
 	* Phantoms
 	* Pigs
 	* Piglins (including Piglin Brutes and Zombified Piglins)
+	* Polar Bear
 	* Rabbits
+	* Snow Golem
 	* Sheep
+	* Shulker
 	* Silverfish
 	* Skeletons and their variants (Wither Skeletons and Strays)
 	* Slimes
@@ -76,6 +81,7 @@ assets/dorianpb/cem/za/waurdo/creeper.jem", etc.
 	* Villagers (and Zombie Villagers)
 	* Wandering Traders
 	* Witches
+	* Wither
 	* Wolves
 	* Zoglin
 	* Zombies and their variants (Husks, Drowned, and Giants)
