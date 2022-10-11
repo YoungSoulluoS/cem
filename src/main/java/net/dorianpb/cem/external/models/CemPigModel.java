@@ -8,8 +8,7 @@ import net.minecraft.client.render.entity.model.PigEntityModel;
 import net.minecraft.entity.passive.PigEntity;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CemPigModel extends PigEntityModel<PigEntity> implements CemModel{
 	private static final Map<String, String> partNames = new HashMap<>();
@@ -28,6 +27,7 @@ public class CemPigModel extends PigEntityModel<PigEntity> implements CemModel{
 		                                                                .setInflate(inflate)
 		                                                                .create()));
 		this.registry = registry;
+		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
 	}
 	
 	@Override

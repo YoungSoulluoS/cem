@@ -7,8 +7,7 @@ import net.minecraft.client.render.entity.model.SheepEntityModel;
 import net.minecraft.client.render.entity.model.SheepWoolEntityModel;
 import net.minecraft.entity.passive.SheepEntity;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CemSheepModel extends SheepEntityModel<SheepEntity> implements CemModel{
 	private static final Map<String, String> partNames = new HashMap<>();
@@ -26,6 +25,7 @@ public class CemSheepModel extends SheepEntityModel<SheepEntity> implements CemM
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .create()));
 		this.registry = registry;
+		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
 	}
 	
 	@Override
@@ -34,7 +34,8 @@ public class CemSheepModel extends SheepEntityModel<SheepEntity> implements CemM
 		this.registry.applyAnimations(limbAngle, limbDistance, animationProgress, headYaw, headPitch, entity);
 	}
 	
-	public static class CemSheepWoolModel extends SheepWoolEntityModel<SheepEntity>{
+	public static class CemSheepWoolModel extends SheepWoolEntityModel<SheepEntity> implements CemModel{
+		private static final Map<String, String> partNames = new HashMap<>();
 		private final CemModelRegistry registry;
 		
 		public CemSheepWoolModel(CemModelRegistry registry){
@@ -42,6 +43,7 @@ public class CemSheepModel extends SheepEntityModel<SheepEntity> implements CemM
 			                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 			                                                                .create()));
 			this.registry = registry;
+			this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
 		}
 		
 		@Override
