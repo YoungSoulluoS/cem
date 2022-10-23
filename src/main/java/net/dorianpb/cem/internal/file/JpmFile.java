@@ -179,8 +179,8 @@ public class JpmFile{
 		
 		public float[] getUv(String direction){
 			return switch(direction.toLowerCase()){
-				case "down" -> new float[]{uvUp.get(0).floatValue(), uvUp.get(1).floatValue(), uvUp.get(2).floatValue(), uvUp.get(3).floatValue()};
-				case "up" -> new float[]{uvDown.get(0).floatValue(), uvDown.get(1).floatValue(), uvDown.get(2).floatValue(), uvDown.get(3).floatValue()};
+				case "down" -> new float[]{uvUp.get(2).floatValue(), uvUp.get(3).floatValue(), uvUp.get(0).floatValue(), uvUp.get(1).floatValue()};
+				case "up" -> new float[]{uvDown.get(2).floatValue(), uvDown.get(3).floatValue(), uvDown.get(0).floatValue(), uvDown.get(1).floatValue()};
 				case "front", "north" -> new float[]{uvFront.get(0).floatValue(), uvFront.get(1).floatValue(), uvFront.get(2).floatValue(), uvFront.get(3).floatValue()};
 				case "back", "south" -> new float[]{uvBack.get(0).floatValue(), uvBack.get(1).floatValue(), uvBack.get(2).floatValue(), uvBack.get(3).floatValue()};
 				case "right", "east" -> new float[]{uvLeft.get(0).floatValue(), uvLeft.get(1).floatValue(), uvLeft.get(2).floatValue(), uvLeft.get(3).floatValue()};
