@@ -8,8 +8,7 @@ This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* wor
 
 ## Installation
 
-Check out [Modrinth](https://modrinth.com/mod/cem) page, the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/custom-entity-models-cem "CurseForge Page"), or
-build it yourself. This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). If you want to configure this mod, the installation
+CCheck out the [Releases](https://github.com/YoungSoulluoS/cemFork/releases) page for builds, or build it yourself. This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). If you want to configure this mod, the installation
 of [completeconfig](https://www.curseforge.com/minecraft/mc-mods/completeconfig "completeconfig")
 and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config "cloth api")
 are also required.
