@@ -11,7 +11,8 @@ This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* wor
 CCheck out the [Releases](https://github.com/YoungSoulluoS/cemFork/releases) page for builds, or build it yourself. This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). If you want to configure this mod, the installation
 of [completeconfig](https://www.curseforge.com/minecraft/mc-mods/completeconfig "completeconfig")
 and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config "cloth api")
-are also required.
+are also required. I also recommend installing the ETF mod. It will help fix some visual errors and expand the CEM mod's capabilities. https://modrinth.com/mod/entitytexturefeatures
+And also recommend installing the Animatica mod. This will add animations for textures, e.g. blinking for eyes in FA Addon etc. https://modrinth.com/mod/animatica
 
 ## How to use
 
