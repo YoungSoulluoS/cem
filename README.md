@@ -22,7 +22,7 @@ config to just load from optifine's folder structure.
 
 ## Discord Server Link
 
-Join my discord server here: https://discord.gg/3qxFZm7Ycw
+Join dorianpb discord server here: https://discord.gg/3qxFZm7Ycw
 
 ## For resource pack devs
 
