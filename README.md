@@ -1,38 +1,32 @@
-# Custom Entity Models (but for Fabric)
+## CEM is owned and created by dorianpb. I'm only rewriting for more compatibility.
+
+Original:
+
+- dorianpb Discord https://discord.gg/3qxFZm7Ycw
+
+- dorianpb GitHub https://github.com/dorianpb/cem
+
+# Installation
+CCheck out the [Releases](https://github.com/YoungSoulluoS/cemFork/releases) page for builds, or build it yourself.
+
+This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). 
+
+If you want to configure this mod, the installation
+of [completeconfig](https://www.curseforge.com/minecraft/mc-mods/completeconfig "completeconfig")
+and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config "cloth api")
+are also required. 
+
+I also recommend installing the ETF mod. It will help fix some visual errors and expand the CEM mod's capabilities. https://modrinth.com/mod/entitytexturefeatures
+
+And also recommend installing the Animatica mod. This will add animations for textures, e.g. blinking for eyes in FA Addon etc. https://modrinth.com/mod/animatica
+
+## Custom Entity Models (but for Fabric)
 
 An implementation of custom entity models heavily based off of Optifine's format that aims to achieve feature parity with Optifine's custom entity models.
 
 ## Current State of this Mod
 
 This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* work properly! There is absolutely no guarantee that things will work as intended or at all!
-
-## Installation
-
-CCheck out the [Releases](https://github.com/YoungSoulluoS/cemFork/releases) page for builds, or build it yourself. This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). If you want to configure this mod, the installation
-of [completeconfig](https://www.curseforge.com/minecraft/mc-mods/completeconfig "completeconfig")
-and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config "cloth api")
-are also required. I also recommend installing the ETF mod. It will help fix some visual errors and expand the CEM mod's capabilities. https://modrinth.com/mod/entitytexturefeatures
-And also recommend installing the Animatica mod. This will add animations for textures, e.g. blinking for eyes in FA Addon etc. https://modrinth.com/mod/animatica
-
-## How to use
-
-This mod loads .jem and .jpm files from  "assets/dorianpb/cem" folder in resource packs. For resource packs intended to be used with Optifine, renaming "
-assets/minecraft/optifine/cem" to "assets/dorianpb/cem" should work fine. If you install the optional dependencies, this isn't necessary as there is an option within the
-config to just load from optifine's folder structure.
-
-## Discord Server Link
-
-Join dorianpb discord server here: https://discord.gg/3qxFZm7Ycw
-
-## For resource pack devs
-
-The file format for the .jem and .jpm is identical to the Optfine's (check out [here](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/cem_model.txt ".jem")
-, [here](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/cem_part.txt ".jpm"),
-and [here](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/cem_animation.txt "animations")). The folder structures inside "assets/dorianpb/cem" does not matter.
-If you want to assign a custom model for a creeper, you could put the file as "assets/dorianpb/cem/creeper.jem", "assets/dorianpb/cem/creeper/creeper.jem", "
-assets/dorianpb/cem/za/waurdo/creeper.jem", etc.
-
-## Differences
 
 * For now, only the following entities are supported (in alphabetical order):
 	* Armor Stands
@@ -85,6 +79,22 @@ assets/dorianpb/cem/za/waurdo/creeper.jem", etc.
 	* Wolves
 	* Zoglin
 	* Zombies and their variants (Husks, Drowned, and Giants)
+
+## How to use
+
+This mod loads .jem and .jpm files from  "assets/dorianpb/cem" folder in resource packs. For resource packs intended to be used with Optifine, renaming "
+assets/minecraft/optifine/cem" to "assets/dorianpb/cem" should work fine. If you install the optional dependencies, this isn't necessary as there is an option within the
+config to just load from optifine's folder structure.
+
+## For resource pack devs
+
+The file format for the .jem and .jpm is identical to the Optfine's (check out [here](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/cem_model.txt ".jem")
+, [here](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/cem_part.txt ".jpm"),
+and [here](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/cem_animation.txt "animations")). The folder structures inside "assets/dorianpb/cem" does not matter.
+If you want to assign a custom model for a creeper, you could put the file as "assets/dorianpb/cem/creeper.jem", "assets/dorianpb/cem/creeper/creeper.jem", "
+assets/dorianpb/cem/za/waurdo/creeper.jem", etc.
+
+## Differences
 
 * Individual part textures are not supported (you can only specify texture and texture size in the .jem file).
 * Sprites are not supported.
