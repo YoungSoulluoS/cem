@@ -29,6 +29,7 @@ An implementation of custom entity models heavily based off of Optifine's format
 This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* work properly! There is absolutely no guarantee that things will work as intended or at all!
 
 * For now, only the following entities are supported (in alphabetical order):
+	* Allay
 	* Armor Stands
 	* Axolotl
 	* Banners
@@ -45,17 +46,20 @@ This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* wor
 	* Ender Dragon (must be ender_dragon.jem, not dragon.jem)
 	* Fish (just salmon for now)
 	* Foxes
+	* Frog
 	* Ghasts
 	* Guardians and Elder Guardians
-	* Hoglin
+	* Goat
+	* Hoglin and Zoglin
 	* Horses and their undead variants, Donkey, Mule
-	* Illagers (Evokers, Illusioners, Pillagers, Vindicatorsm, Ravager and Vex)
+	* Illagers (Evokers, Illusioners, Pillagers, Vindicators, Ravager and Vex)
 	* Iron Golems
 	* Llama and Trader Llama
 	* Magma Cubes
 	* Minecarts (all variants)
 	* Mooshrooms
 	* Ocelots
+	* Panda
 	* Parrot
 	* Phantoms
 	* Pigs
@@ -74,10 +78,10 @@ This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* wor
 	* Turtles
 	* Villagers (and Zombie Villagers)
 	* Wandering Traders
+	* Warden
 	* Witches
 	* Wither
 	* Wolves
-	* Zoglin
 	* Zombies and their variants (Husks, Drowned, and Giants)
 
 ## How to use
