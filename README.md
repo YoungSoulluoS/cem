@@ -43,8 +43,9 @@ This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* wor
 	* Creepers
 	* Dolphins
 	* Endermen
+	* Endermite
 	* Ender Dragon (must be ender_dragon.jem, not dragon.jem)
-	* Fish (just salmon for now)
+	* Fish (just salmon and cod for now)
 	* Foxes
 	* Frog
 	* Ghasts
@@ -74,6 +75,7 @@ This mod is currently in ***ALPHA***, meaning that things *MAY* or *MAY NOT* wor
 	* Slimes
 	* Spiders (and Cave Spiders)
 	* Strider
+	* Tadpole
 	* Tridents
 	* Turtles
 	* Villagers (and Zombie Villagers)
