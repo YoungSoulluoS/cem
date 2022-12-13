@@ -28,6 +28,7 @@ public class CemMinecartRenderer extends MinecartEntityRenderer<AbstractMinecart
 		layers.put(EntityType.HOPPER_MINECART, EntityModelLayers.HOPPER_MINECART);
 		layers.put(EntityType.MINECART, EntityModelLayers.MINECART);
 		layers.put(EntityType.SPAWNER_MINECART, EntityModelLayers.SPAWNER_MINECART);
+		layers.put(EntityType.TNT_MINECART, EntityModelLayers.TNT_MINECART);
 	}
 	
 	public CemMinecartRenderer(Context context, EntityType<? extends AbstractMinecartEntity> entityType){

@@ -2,7 +2,7 @@ package net.dorianpb.cem.external.renderers;
 
 import net.dorianpb.cem.external.models.CemPiglinModel;
 import net.dorianpb.cem.internal.api.CemRenderer;
-import net.dorianpb.cem.internal.models.CemArmorModel;
+import net.dorianpb.cem.internal.models.CemArmorModelPiglin;
 import net.dorianpb.cem.internal.models.CemModelRegistry;
 import net.dorianpb.cem.internal.util.CemRegistryManager;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -30,7 +30,7 @@ public class CemPiglinRenderer extends PiglinEntityRenderer implements CemRender
 			}
 			this.features.replaceAll((feature) -> {
 				if(feature instanceof ArmorFeatureRenderer){
-					return new ArmorFeatureRenderer<>(this, new CemArmorModel<>((CemPiglinModel) this.model, 0.5F), new CemArmorModel<>((CemPiglinModel) this.model, 1.02F));
+					return new ArmorFeatureRenderer<>(this, new CemArmorModelPiglin<>((CemPiglinModel) this.model, 0.5F), new CemArmorModelPiglin<>((CemPiglinModel) this.model, 1.02F));
 				}
 				else{
 					return feature;

@@ -6,6 +6,7 @@ import net.dorianpb.cem.internal.models.CemModelRegistry;
 import net.dorianpb.cem.internal.util.CemRegistryManager;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MooshroomEntityRenderer;
+import net.minecraft.client.render.entity.feature.MooshroomMushroomFeatureRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.MooshroomEntity;
@@ -22,6 +23,15 @@ public class CemMooshroomRenderer extends MooshroomEntityRenderer implements Cem
 			if(registry.hasShadowRadius()){
 				this.shadowRadius = registry.getShadowRadius();
 			}
+			/* this.features.replaceAll((feature) -> {
+				if(feature instanceof MooshroomMushroomFeatureRenderer){
+					CemModelRegistry mushroomRegistry = CemRegistryManager.getRegistry(getType());
+					return new MooshroomMushroomFeatureRenderer<>(this, new CemCowModel(mushroomRegistry, 0.5F), new Identifier("textures/entity/cow/red_mushroom.png"));
+				}
+				else{
+					return feature;
+				}
+			}); */
 		} catch(Exception e){
 			modelError(e);
 		}
