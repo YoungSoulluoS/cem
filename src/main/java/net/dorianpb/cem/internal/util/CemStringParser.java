@@ -588,6 +588,7 @@ public class CemStringParser{
 		IS_SNEAKING,
 		IS_SPRINTING,
 		IS_SITTING,
+		IS_TAMED,
 		IS_WET,
 		IS_DANCING,
 		IS_SLEEPING,
@@ -613,6 +614,7 @@ public class CemStringParser{
 				case IS_SNEAKING -> env.getEntity().isSneaking();
 				case IS_SPRINTING -> env.getEntity().isSprinting();
 				case IS_SITTING -> env.getTameableEntity().isInSittingPose();
+				case IS_TAMED -> env.getTameableEntity().isTamed();
 				case IS_WET -> env.getEntity().isWet();
 				case IS_DANCING -> env.getPiglinEntity().isDancing();
 				case IS_SLEEPING -> env.getLivingEntity().isSleeping();

@@ -11,6 +11,7 @@ public final class CemConfig extends Config implements CemOptions{
 	@ConfigEntry private boolean use_optifine_folder        = CemOptions.instance.useOptifineFolder();
 	@ConfigEntry private boolean use_new_model_creation_fix = CemOptions.instance.useTransparentParts();
 	@ConfigEntry private boolean use_old_animations         = CemOptions.instance.useOldAnimations();
+	// @ConfigEntry private boolean change_cow_rotate         = CemOptions.instance.changeCowRotate();
 	
 	private CemConfig(){
 		super("cem");
@@ -42,4 +43,9 @@ public final class CemConfig extends Config implements CemOptions{
 	public boolean useOldAnimations(){
 		return this.use_old_animations;
 	}
+	
+	// @Override
+	// public boolean changeCowRotate(){
+		// return this.change_cow_rotate;
+	// }
 }

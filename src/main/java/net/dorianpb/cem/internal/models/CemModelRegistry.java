@@ -15,6 +15,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.entity.EntityType;
+
 import java.util.*;
 
 /** Contains all of the data for the CEM model */
@@ -87,6 +89,16 @@ public class CemModelRegistry{
 				params.fixes().forEach(((key, modelTransform) -> newFixes.put(params.partNameMap().getOrDefault(key, key), modelTransform)));
 			}
 			this.makePartTransparent(newRoot, params.vanillaReferenceModelFactory().get(), newFixes);
+		}
+		
+		if(!CemConfigFairy.getConfig().useTransparentParts()){
+			Map<String, ModelTransform> newFixes = new HashMap<>();
+			if(params.fixes() != null){
+				params.fixes().forEach(((key, modelTransform) -> newFixes.put(params.partNameMap().getOrDefault(key, key), modelTransform)));
+			}
+			if(params.fixes() != null){
+			this.makePartTransparent(newRoot, params.vanillaReferenceModelFactory().get(), newFixes);
+			}
 		}
 		return newRoot;
 	}
@@ -239,39 +251,74 @@ public class CemModelRegistry{
 		CemModelEntry victim = null;
 		ArrayList<String> hit = null;
 		ArrayList<String> refmap = new ArrayList<>(Arrays.asList(target.split(":")));
-		if(refmap.size() == 1 && this.partNameRefs.containsKey(refmap.get(0))){
-			victim = this.partNameRefs.get(refmap.get(0));
-			return victim;
-		}
-		else if(parent != null && (refmap.get(0).equals("this") || refmap.get(0).equals("part"))){
-			if(refmap.size() == 1){
-				return parent;
+		// if(CemConfigFairy.getConfig().changeCowRotate()){
+			// if(refmap.size() == 1 && this.partNameRefs.containsKey(refmap.get(0))){
+				// victim = this.partNameRefs.get(refmap.get(0));
+				// return victim;
+			// }
+			// else if(parent != null && (refmap.get(0).equals("arms_rotation") || refmap.get(0).equals("body_rotation"))){
+				// if(refmap.size() == 1){
+					// return parent;
+				// }
+				// else{
+					// StringBuilder newTarget = new StringBuilder();
+					// newTarget.append((parent.getId() == null)? parent.getPart() : parent.getId());
+					// for(int d = 1; d < refmap.size(); d++){
+						// newTarget.append(":").append(refmap.get(d));
+					// }
+					// return findChild(newTarget.toString(), parent);
+				// }
+			// }
+			// else{
+				// for(ArrayList<String> part : this.database.keySet()){
+					// ArrayList<Integer> hello = new ArrayList<>();
+					// for(String ref : refmap){
+						// hello.add(part.indexOf(ref));
+					// }
+					// boolean hi = hello.size() != 1 || hello.get(0) > -1;
+					// for(int i = 0; i < hello.size() - 1; i++){
+						// hi = hi && hello.get(i) < hello.get(i + 1) && hello.get(i) > -1;
+					// }
+					// if(hi && (hit == null || part.size() < hit.size())){
+						// hit = part;
+					// }
+					// victim = this.database.get(hit);
+				// }
+			// }
+		// }
+			if(refmap.size() == 1 && this.partNameRefs.containsKey(refmap.get(0))){
+				victim = this.partNameRefs.get(refmap.get(0));
+				return victim;
+			}
+			else if(parent != null && (refmap.get(0).equals("this") || refmap.get(0).equals("part"))){
+				if(refmap.size() == 1){
+					return parent;
+				}
+				else{
+					StringBuilder newTarget = new StringBuilder();
+					newTarget.append((parent.getId() == null)? parent.getPart() : parent.getId());
+					for(int d = 1; d < refmap.size(); d++){
+						newTarget.append(":").append(refmap.get(d));
+					}
+					return findChild(newTarget.toString(), parent);
+				}
 			}
 			else{
-				StringBuilder newTarget = new StringBuilder();
-				newTarget.append((parent.getId() == null)? parent.getPart() : parent.getId());
-				for(int d = 1; d < refmap.size(); d++){
-					newTarget.append(":").append(refmap.get(d));
+				for(ArrayList<String> part : this.database.keySet()){
+					ArrayList<Integer> hello = new ArrayList<>();
+					for(String ref : refmap){
+						hello.add(part.indexOf(ref));
+					}
+					boolean hi = hello.size() != 1 || hello.get(0) > -1;
+					for(int i = 0; i < hello.size() - 1; i++){
+						hi = hi && hello.get(i) < hello.get(i + 1) && hello.get(i) > -1;
+					}
+					if(hi && (hit == null || part.size() < hit.size())){
+						hit = part;
+					}
+					victim = this.database.get(hit);
 				}
-				return findChild(newTarget.toString(), parent);
 			}
-		}
-		else{
-			for(ArrayList<String> part : this.database.keySet()){
-				ArrayList<Integer> hello = new ArrayList<>();
-				for(String ref : refmap){
-					hello.add(part.indexOf(ref));
-				}
-				boolean hi = hello.size() != 1 || hello.get(0) > -1;
-				for(int i = 0; i < hello.size() - 1; i++){
-					hi = hi && hello.get(i) < hello.get(i + 1) && hello.get(i) > -1;
-				}
-				if(hi && (hit == null || part.size() < hit.size())){
-					hit = part;
-				}
-				victim = this.database.get(hit);
-			}
-		}
 		if(victim == null){
 			throw new NullPointerException("Model part " + target + " isn't specified in " + this.file.getPath());
 		}

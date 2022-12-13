@@ -81,16 +81,6 @@ public class CemArmorModelSkeleton<C extends CemModel, T extends LivingEntity> e
 					case EntityModelPartNames.RIGHT_LEG -> newarmor1.addCuboid(reverse? -4 : -1, 0, -1, 4, 12, 4, 0, false, false, 0, 16);
 					case EntityModelPartNames.LEFT_LEG -> newarmor1.addCuboid(reverse? -4 : -1, 0, -1, 4, 12, 4, 0, true, false, 0, 16);
 				}
-				/* if (EntityType.WITHER_SKELETON != null){
-					if (name == EntityModelPartNames.RIGHT_ARM ){
-					newarmor.setPivot(x-1, y, z-1);
-					newarmor.addCuboid(reverse? -4 : 0, 0, 0, 4, 12, 4, 0, false, false, 40, 16);
-				}
-				}
-				if (name == EntityModelPartNames.LEFT_ARM){
-					newarmor.setPivot(x-1, y, z-1);
-					newarmor.addCuboid(reverse? -4 : 0, 0, 0, 4, 12, 4, 0, true, false, 40, 16);
-				} */
 				armorPart.addChild("armor", newarmor1);
 			}
 		});
@@ -113,7 +103,7 @@ public class CemArmorModelSkeleton<C extends CemModel, T extends LivingEntity> e
 	private static <M extends ModelPart> void removeCuboids(M modelPart, Map<CemModelPart, float[]> armorCandidates){
 		if(armorCandidates.containsKey((CemModelPart) modelPart)){
 			for(ModelPart.Cuboid cuboid : modelPart.cuboids){
-				armorCandidates.put((CemModelPart) modelPart, new float[]{cuboid.minX, cuboid.minY, cuboid.minZ, ((CemCuboid) cuboid).isMirrorU()? 1 : 0});
+				armorCandidates.put((CemModelPart) modelPart, new float[]{cuboid.minX, cuboid.minY, cuboid.minZ, ((CemCuboid) cuboid).isMirrorU()? 0 : 0});
 			}
 		}
 		modelPart.cuboids.clear();

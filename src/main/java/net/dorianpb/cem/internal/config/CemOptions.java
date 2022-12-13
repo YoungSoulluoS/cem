@@ -16,4 +16,8 @@ public interface CemOptions{
 	default boolean useOldAnimations(){
 		return false;
 	}
+	
+	// default boolean changeCowRotate(){
+		// return false;
+	// }
 }
