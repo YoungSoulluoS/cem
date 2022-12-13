@@ -12,7 +12,7 @@ import java.util.*;
 public class CemGuardianModel extends GuardianEntityModel implements CemModel{
 	private static final Map<String, String>         partNames           = new HashMap<>();
 	private static final Map<String, List<String>>   familyTree          = new LinkedHashMap<>();
-	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
+	// private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final        CemModelRegistry            registry;
 	
 	static{
@@ -34,27 +34,27 @@ public class CemGuardianModel extends GuardianEntityModel implements CemModel{
 		              );
 	}
 	
-	static{
-		modelTransformFixes.put("spine1", ModelTransform.pivot(0.0F, 11.5F, 7.0F));
-		modelTransformFixes.put("spine2", ModelTransform.pivot(0.0F, 11.5F, -7.0F));
-		modelTransformFixes.put("spine3", ModelTransform.pivot(7.0F, 11.5F, 0.0F));
-		modelTransformFixes.put("spine4", ModelTransform.pivot(-7.0F, 11.5F, 0.0F));
-		modelTransformFixes.put("spine5", ModelTransform.pivot(-7.0F, 18.5F, -7.0F));
-		modelTransformFixes.put("spine6", ModelTransform.pivot(7.0F, 18.5F, -7.0F));
-		modelTransformFixes.put("spine7", ModelTransform.pivot(7.0F, 18.5F, 7.0F));
-		modelTransformFixes.put("spine8", ModelTransform.pivot(-7.0F, 18.5F, 7.0F));
-		modelTransformFixes.put("spine9", ModelTransform.pivot(0.0F, 25.5F, 7.0F));
-		modelTransformFixes.put("spine10", ModelTransform.pivot(0.0F, 25.5F, -7.0F));
-		modelTransformFixes.put("spine11", ModelTransform.pivot(7.0F, 25.5F, 0.0F));
-		modelTransformFixes.put("spine12", ModelTransform.pivot(-7.0F, 25.5F, 0.0F));
+	// static{
+		// modelTransformFixes.put("spine1", ModelTransform.pivot(0.0F, 11.5F, 7.0F));
+		// modelTransformFixes.put("spine2", ModelTransform.pivot(0.0F, 11.5F, -7.0F));
+		// modelTransformFixes.put("spine3", ModelTransform.pivot(7.0F, 11.5F, 0.0F));
+		// modelTransformFixes.put("spine4", ModelTransform.pivot(-7.0F, 11.5F, 0.0F));
+		// modelTransformFixes.put("spine5", ModelTransform.pivot(-7.0F, 18.5F, -7.0F));
+		// modelTransformFixes.put("spine6", ModelTransform.pivot(7.0F, 18.5F, -7.0F));
+		// modelTransformFixes.put("spine7", ModelTransform.pivot(7.0F, 18.5F, 7.0F));
+		// modelTransformFixes.put("spine8", ModelTransform.pivot(-7.0F, 18.5F, 7.0F));
+		// modelTransformFixes.put("spine9", ModelTransform.pivot(0.0F, 25.5F, 7.0F));
+		// modelTransformFixes.put("spine10", ModelTransform.pivot(0.0F, 25.5F, -7.0F));
+		// modelTransformFixes.put("spine11", ModelTransform.pivot(7.0F, 25.5F, 0.0F));
+		// modelTransformFixes.put("spine12", ModelTransform.pivot(-7.0F, 25.5F, 0.0F));
 		
-	}
+	// }
 	
 	public CemGuardianModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setFamilyTree(familyTree)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
-		                                                                .setFixes(modelTransformFixes)
+		                                                                // .setFixes(modelTransformFixes)
 		                                                                .create()));
 		this.registry = registry;
 	}

@@ -27,7 +27,7 @@ public class CemZombieModel extends ZombieEntityModel<ZombieEntity> implements C
 	public CemZombieModel(CemModelRegistry registry, @Nullable Float inflate){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setVanillaReferenceModelFactory(() -> TexturedModelData.of(getModelData(Dilation.NONE, 0), 0, 0)
-		                                                                                                                        .createModel())
+																		.createModel())
 		                                                                .setInflate(inflate)
 		                                                                .create()));
 		this.registry = registry;

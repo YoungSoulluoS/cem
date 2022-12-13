@@ -11,7 +11,10 @@ public class CemIronGolemModel extends IronGolemEntityModel<IronGolemEntity> imp
 	
 	
 	public CemIronGolemModel(CemModelRegistry registry){
-		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel()).create()));
+		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder())
+																		.setVanillaReferenceModelFactory(() -> getTexturedModelData()
+																		.createModel())
+																		.create()));
 		this.registry = registry;
 	}
 	

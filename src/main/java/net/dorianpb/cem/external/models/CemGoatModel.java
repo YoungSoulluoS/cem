@@ -23,9 +23,9 @@ public class CemGoatModel<T extends GoatEntity> extends GoatEntityModel<T> imple
 		// partNames.put("nose", "nose");
 	}
 	
-	// static{
-		// familyTree.put("", Arrays.asList("right_horn", "left_horn","nose"));
-	// }
+	static{
+		familyTree.put("head", Arrays.asList("right_horn", "left_horn","nose"));
+	}
 	
 	public CemGoatModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
@@ -33,6 +33,8 @@ public class CemGoatModel<T extends GoatEntity> extends GoatEntityModel<T> imple
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .create()));
 		this.registry = registry;
+		// this.rotatePart(this.registry.getEntryByPartName("nose"), 'x', -55);
+		// this.translatePart(this.registry.getEntryByPartName("nose"),(0.0F 0.0F 0.0F));
 	}
 	
 	@Override

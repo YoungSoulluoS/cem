@@ -22,7 +22,10 @@ public class CemEndermiteModel extends EndermiteEntityModel<EndermiteEntity> imp
 	
 	
 	public CemEndermiteModel(CemModelRegistry registry){
-		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames).setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel()).create()));
+		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
+																		.setVanillaReferenceModelFactory(() -> getTexturedModelData()
+																		.createModel())
+																		.create()));
 		this.registry = registry;
 	}
 	

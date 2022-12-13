@@ -7,11 +7,11 @@ import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.render.entity.model.WolfEntityModel;
 import net.minecraft.entity.passive.WolfEntity;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CemWolfModel extends WolfEntityModel<WolfEntity> implements CemModel{
 	private static final Map<String, String>         partNames           = new HashMap<>();
+	private static final Map<String, List<String>> familyTree = new LinkedHashMap<>();
 	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final        CemModelRegistry            registry;
 	
@@ -29,7 +29,8 @@ public class CemWolfModel extends WolfEntityModel<WolfEntity> implements CemMode
 	}
 	
 	public CemWolfModel(CemModelRegistry registry){
-		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
+		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)	
+																		.setFamilyTree(familyTree)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .setFixes(modelTransformFixes)
 		                                                                .create()));

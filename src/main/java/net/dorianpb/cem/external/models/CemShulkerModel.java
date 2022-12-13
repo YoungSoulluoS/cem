@@ -6,7 +6,7 @@ import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBu
 import net.minecraft.client.render.entity.model.ShulkerEntityModel;
 import net.minecraft.entity.mob.ShulkerEntity;
 
-public class CemShulkerModel extends ShulkerEntityModel<ShulkerEntity> implements CemModel{
+public class CemShulkerModel extends ShulkerEntityModel implements CemModel{
 	private final CemModelRegistry registry;
 	
 	

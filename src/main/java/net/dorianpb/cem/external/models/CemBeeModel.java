@@ -21,7 +21,7 @@ public class CemBeeModel extends BeeEntityModel<BeeEntity> implements CemModel{
 	static{
 		familyTree.put("torso", Arrays.asList("stinger", "left_antenna", "right_antenna"));
 		familyTree.put("body", Arrays.asList("torso", "right_wing", "left_wing", "front_legs", "middle_legs", "back_legs"));
-	}
+}
 	
 	public CemBeeModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)

@@ -31,11 +31,7 @@ public class CemPiglinModel extends PiglinEntityModel<MobEntity> implements CemM
 	public CemPiglinModel(CemModelRegistry registry, @Nullable Float inflate){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setFamilyTree(familyTree)
-		                                                                .setVanillaReferenceModelFactory(() -> TexturedModelData.of(getTexturedModelData(Dilation.NONE,
-		                                                                                                                                                 false),
-		                                                                                                                            0,
-		                                                                                                                            0
-		                                                                                                                           ).createModel())
+		                                                                .setVanillaReferenceModelFactory(() -> TexturedModelData.of(getTexturedModelData(Dilation.NONE, false), 0, 0).createModel())
 		                                                                .setInflate(inflate)
 		                                                                .create()));
 		this.registry = registry;

@@ -15,7 +15,7 @@ import java.util.*;
 public class CemDonkeyModel<T extends AbstractDonkeyEntity> extends DonkeyEntityModel<T> implements CemModel{
 	private static final Map<String, String>         partNames           = new HashMap<>();
 	private static final Map<String, List<String>>   familyTree          = new LinkedHashMap<>();
-	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
+	// private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final        CemModelRegistry            registry;
 	
 	static{
@@ -45,24 +45,24 @@ public class CemDonkeyModel<T extends AbstractDonkeyEntity> extends DonkeyEntity
 		familyTree.put("neck", Arrays.asList("head", "mane", "mouth", "noseband", "headpiece", "left_bit", "right_bit", "left_rein", "right_rein"));
 	}
 	
-	static{
-		modelTransformFixes.put("front_right_leg", ModelTransform.pivot(-4.0F, 14.0F, -10F));
-		modelTransformFixes.put("front_left_leg", ModelTransform.pivot(4.0F, 14.0F, -10F));
-		modelTransformFixes.put("back_right_leg", ModelTransform.pivot(-4.0F, 14.0F, 8.0F));
-		modelTransformFixes.put("back_left_leg", ModelTransform.pivot(4.0F, 14.0F, 8.0F));
-		modelTransformFixes.put("child_front_right_leg", ModelTransform.pivot(-4.0F, 14.0F, -10.0F));
-		modelTransformFixes.put("child_front_left_leg", ModelTransform.pivot(4.0F, 14.0F, -10.0F));
-		modelTransformFixes.put("child_back_right_leg", ModelTransform.pivot(-4.0F, 14.0F, 8.0F));
-		modelTransformFixes.put("child_back_left_leg", ModelTransform.pivot(4.0F, 14.0F, 8.0F));
-		modelTransformFixes.put("tail", ModelTransform.pivot(0.0F, -8.0F, 5.0F));
-	}
+	// static{
+		// modelTransformFixes.put("front_right_leg", ModelTransform.pivot(-4.0F, 14.0F, -10F));
+		// modelTransformFixes.put("front_left_leg", ModelTransform.pivot(4.0F, 14.0F, -10F));
+		// modelTransformFixes.put("back_right_leg", ModelTransform.pivot(-4.0F, 14.0F, 8.0F));
+		// modelTransformFixes.put("back_left_leg", ModelTransform.pivot(4.0F, 14.0F, 8.0F));
+		// modelTransformFixes.put("child_front_right_leg", ModelTransform.pivot(-4.0F, 14.0F, -10.0F));
+		// modelTransformFixes.put("child_front_left_leg", ModelTransform.pivot(4.0F, 14.0F, -10.0F));
+		// modelTransformFixes.put("child_back_right_leg", ModelTransform.pivot(-4.0F, 14.0F, 8.0F));
+		// modelTransformFixes.put("child_back_left_leg", ModelTransform.pivot(4.0F, 14.0F, 8.0F));
+		// modelTransformFixes.put("tail", ModelTransform.pivot(0.0F, -8.0F, 5.0F));
+	// }
 	
 	public CemDonkeyModel(CemModelRegistry registry, @Nullable Float inflate){
 		super(registry.prepRootPart(new CemPrepRootPartParamsBuilder().setPartNameMap(partNames)
 		                                                              .setFamilyTree(familyTree)
 		                                                              .setVanillaReferenceModelFactory(() -> TexturedModelData.of(getModelData(Dilation.NONE), 0, 0)
 		                                                                                                                      .createModel())
-		                                                              .setFixes(modelTransformFixes)
+		                                                              // .setFixes(modelTransformFixes)
 		                                                              .setInflate(inflate)
 		                                                              .create()));
 		this.registry = registry;

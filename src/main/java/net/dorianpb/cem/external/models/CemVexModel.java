@@ -13,13 +13,19 @@ public class CemVexModel extends VexEntityModel implements CemModel{
 	private static final Map<String, List<String>> familyTree = new LinkedHashMap<>();
 	private final        CemModelRegistry          registry;
 	
+	
+	static{	
+		familyTree.put("body", Arrays.asList("right_arm", "left_arm", "right_wing", "left_wing"));
+		familyTree.put("root",  Arrays.asList("head","body"));
+       	
+    }	
+	
 	public CemVexModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setFamilyTree(familyTree)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .create()));
 		this.registry = registry;
-		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
 	}
 	
 	@Override

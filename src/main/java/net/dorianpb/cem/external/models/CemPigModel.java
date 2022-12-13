@@ -8,6 +8,8 @@ import net.minecraft.client.render.entity.model.PigEntityModel;
 import net.minecraft.entity.passive.PigEntity;
 import org.jetbrains.annotations.Nullable;
 
+import net.dorianpb.cem.internal.config.CemConfigFairy;
+
 import java.util.*;
 
 public class CemPigModel extends PigEntityModel<PigEntity> implements CemModel{
@@ -27,7 +29,9 @@ public class CemPigModel extends PigEntityModel<PigEntity> implements CemModel{
 		                                                                .setInflate(inflate)
 		                                                                .create()));
 		this.registry = registry;
+		// if(!CemConfigFairy.getConfig().changeCowRotate()){
 		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
+		// }
 	}
 	
 	@Override

@@ -6,11 +6,14 @@ import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBu
 import net.minecraft.client.render.entity.model.PandaEntityModel;
 import net.minecraft.entity.passive.PandaEntity;
 
+import net.minecraft.client.model.ModelTransform;
+
 import java.util.*;
 
 public class CemPandaModel<T extends PandaEntity> extends PandaEntityModel<T> implements CemModel{
 	private static final Map<String, String>       partNames  = new HashMap<>();
 	private static final Map<String, List<String>> familyTree = new LinkedHashMap<>();
+	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final        CemModelRegistry          registry;
 	
 	static{
@@ -22,6 +25,7 @@ public class CemPandaModel<T extends PandaEntity> extends PandaEntityModel<T> im
 	public CemPandaModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
+																		.setFixes(modelTransformFixes)
 		                                                                .create()));
 		this.registry = registry;
 		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class CemGhastModel extends GhastEntityModel<GhastEntity> implements CemModel{
 	private static final Map<String, String>         partNames           = new HashMap<>();
-	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
+	// private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final        CemModelRegistry            registry;
 	
 	static{
@@ -21,23 +21,23 @@ public class CemGhastModel extends GhastEntityModel<GhastEntity> implements CemM
 		}
 	}
 	
-	static{
-		modelTransformFixes.put("body", ModelTransform.pivot(0.0F, 4.0F, 0.0F));
-		modelTransformFixes.put("tentacle1", ModelTransform.pivot(-3.7F, 11.0F, -5.0F));
-		modelTransformFixes.put("tentacle2", ModelTransform.pivot(1.3F, 11.0F, -5.0F));
-		modelTransformFixes.put("tentacle3", ModelTransform.pivot(6.3F, 11.0F, -5.0F));
-		modelTransformFixes.put("tentacle4", ModelTransform.pivot(-6.3F, 11.0F, -5.0F));
-		modelTransformFixes.put("tentacle5", ModelTransform.pivot(-1.3F, 11.0F, 0.0F));
-		modelTransformFixes.put("tentacle6", ModelTransform.pivot(3.7F, 11.0F, 0.0F));
-		modelTransformFixes.put("tentacle7", ModelTransform.pivot(-3.7F, 11.0F, 5.0F));
-		modelTransformFixes.put("tentacle8", ModelTransform.pivot(1.3F, 11.0F, 5.0F));
-		modelTransformFixes.put("tentacle9", ModelTransform.pivot(6.3F, 11.0F, 5.0F));
-	}
+	// static{
+		// modelTransformFixes.put("body", ModelTransform.pivot(0.0F, 4.0F, 0.0F));
+		// modelTransformFixes.put("tentacle1", ModelTransform.pivot(-3.7F, 11.0F, -5.0F));
+		// modelTransformFixes.put("tentacle2", ModelTransform.pivot(1.3F, 11.0F, -5.0F));
+		// modelTransformFixes.put("tentacle3", ModelTransform.pivot(6.3F, 11.0F, -5.0F));
+		// modelTransformFixes.put("tentacle4", ModelTransform.pivot(-6.3F, 11.0F, -5.0F));
+		// modelTransformFixes.put("tentacle5", ModelTransform.pivot(-1.3F, 11.0F, 0.0F));
+		// modelTransformFixes.put("tentacle6", ModelTransform.pivot(3.7F, 11.0F, 0.0F));
+		// modelTransformFixes.put("tentacle7", ModelTransform.pivot(-3.7F, 11.0F, 5.0F));
+		// modelTransformFixes.put("tentacle8", ModelTransform.pivot(1.3F, 11.0F, 5.0F));
+		// modelTransformFixes.put("tentacle9", ModelTransform.pivot(6.3F, 11.0F, 5.0F));
+	// }
 	
 	public CemGhastModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
-		                                                                .setFixes(modelTransformFixes)
+		                                                                // .setFixes(modelTransformFixes)
 		                                                                .create()));
 		this.registry = registry;
 	}

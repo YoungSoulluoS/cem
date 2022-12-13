@@ -5,7 +5,6 @@ import net.dorianpb.cem.internal.models.CemModelRegistry;
 import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBuilder;
 import net.minecraft.client.render.entity.model.HoglinEntityModel;
 import net.minecraft.entity.mob.ZoglinEntity;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
@@ -21,18 +20,13 @@ public class CemZoglinModel<T extends ZoglinEntity> extends HoglinEntityModel<T>
 		partNames.put("front_left_leg", "left_front_leg");
 	}
 	
-	static{
-		familyTree.put("head", Arrays.asList("attack", "sniff"));
-		familyTree.put("body", Arrays.asList("baby_head"));
-	}
-	
 	public CemZoglinModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setFamilyTree(familyTree)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .create()));
 		this.registry = registry;
-		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
+		// this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
 	}
 	
 	@Override

@@ -13,16 +13,16 @@ public class CemParrotModel extends ParrotEntityModel implements CemModel{
 	private static final Map<String, List<String>> familyTree = new LinkedHashMap<>();
 	private final        CemModelRegistry          registry;
 	
-	static{
-		partNames.put("outer_left_wing", "left_wing_tip");
-		partNames.put("outer_right_wing", "right_wing_tip");
-	}
+	// static{
+		// partNames.put("outer_left_wing", "left_wing_tip");
+		// partNames.put("outer_right_wing", "right_wing_tip");
+	// }
 	
-	static{
-		familyTree.put("right_wing", Collections.singletonList("outer_right_wing"));
-		familyTree.put("left_wing", Collections.singletonList("outer_left_wing"));
-		familyTree.put("body", Arrays.asList("left_wing", "right_wing"));
-	}
+	// static{
+		// familyTree.put("right_wing", Collections.singletonList("outer_right_wing"));
+		// familyTree.put("left_wing", Collections.singletonList("outer_left_wing"));
+		// familyTree.put("body", Arrays.asList("left_wing", "right_wing"));
+	// }
 	
 	public CemParrotModel(CemModelRegistry registry){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)

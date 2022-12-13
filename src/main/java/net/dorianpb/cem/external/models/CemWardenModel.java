@@ -3,10 +3,9 @@ package net.dorianpb.cem.external.models;
 import net.dorianpb.cem.internal.api.CemModel;
 import net.dorianpb.cem.internal.models.CemModelRegistry;
 import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBuilder;
+import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.render.entity.model.WardenEntityModel;
 import net.minecraft.entity.mob.WardenEntity;
-
-import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.model.Dilation;
 import org.jetbrains.annotations.Nullable;
@@ -19,18 +18,27 @@ public class CemWardenModel extends WardenEntityModel<WardenEntity> implements C
 	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final CemModelRegistry registry;
 	
-	// static{
-		// modelTransformFixes.put("head", ModelTransform.pivot(0.0F, 34.0F, -1.0F));
-		// modelTransformFixes.put("left_tendril", ModelTransform.pivot(-8.0F, 46.0F, 0.0F));
-		// modelTransformFixes.put("right_tendril", ModelTransform.pivot(8.0F, 34.0F,0.0F));
-		// modelTransformFixes.put("torso", ModelTransform.pivot(0.0F, 21.0F, -1.0F));
-		// modelTransformFixes.put("left_arm", ModelTransform.pivot(-13.0F, 34.0F, 0.0F));
-		// modelTransformFixes.put("right_arm", ModelTransform.pivot(13.0F, 34.0F, 0.0F));
-	// }
+	static{
+		partNames.put("body", "bone");
+		partNames.put("torso", "body");
+	}
+	
+	static{
+		familyTree.put("head", Arrays.asList("right_tendril", "left_tendril"));
+		familyTree.put("torso", Arrays.asList("head", "left_arm", "right_arm","left_ribcage","right_ribcage"));
+		familyTree.put("body", Arrays.asList("torso", "right_leg", "left_leg"));
+	}
+	
+	static{
+		modelTransformFixes.put("body", ModelTransform.pivot(0.0F, 7.5F, 3.5F));
+		modelTransformFixes.put("head", ModelTransform.pivot(-4.0F, 5.5F, 6.0F));
+		modelTransformFixes.put("torso", ModelTransform.pivot(0.0F, -24.0F, 0.0F));
+	}
+	
 	public CemWardenModel(CemModelRegistry registry){
-		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setFamilyTree(familyTree)
+		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
+																		.setFamilyTree(familyTree)
 																		.setVanillaReferenceModelFactory(() -> getTexturedModelData()
-																		
 																		.createModel())
 																		.setFixes(modelTransformFixes)
 																		.create()));
@@ -44,9 +52,4 @@ public class CemWardenModel extends WardenEntityModel<WardenEntity> implements C
 		super.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 		this.registry.applyAnimations(limbAngle, limbDistance, animationProgress, headYaw, headPitch, entity);
 	}
-	
-	/* @Override
-	public void setHeadAndBodyAngles(float animationProgress){
-	super.setHeadAndBodyAngles(animationProgress);
-	} */
 }

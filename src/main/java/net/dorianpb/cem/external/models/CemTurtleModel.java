@@ -16,10 +16,10 @@ public class CemTurtleModel extends TurtleEntityModel<TurtleEntity> implements C
 	private final        CemModelRegistry    registry;
 	
 	static{
-		partNames.put("leg1", "left_hind_leg");
-		partNames.put("leg2", "right_hind_leg");
-		partNames.put("leg3", "left_front_leg");
-		partNames.put("leg4", "right_front_leg");
+		partNames.put("leg1", "right_hind_leg");
+		partNames.put("leg2", "left_hind_leg");
+		partNames.put("leg3", "right_front_leg");
+		partNames.put("leg4", "left_front_leg");
 	}
 	
 	public CemTurtleModel(CemModelRegistry registry, @Nullable Float inflate){

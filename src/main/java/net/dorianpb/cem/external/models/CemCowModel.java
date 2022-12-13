@@ -6,6 +6,8 @@ import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBu
 import net.minecraft.client.render.entity.model.CowEntityModel;
 import net.minecraft.entity.passive.CowEntity;
 
+import net.dorianpb.cem.internal.config.CemConfigFairy;
+
 import java.util.*;
 
 public class CemCowModel<T extends CowEntity> extends CowEntityModel<T> implements CemModel{
@@ -30,7 +32,9 @@ public class CemCowModel<T extends CowEntity> extends CowEntityModel<T> implemen
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .create()));
 		this.registry = registry;
+		// if(!CemConfigFairy.getConfig().changeCowRotate()){
 		this.rotatePart(this.registry.getEntryByPartName("body"), 'x', 90);
+		// }
 	}
 	
 	@Override

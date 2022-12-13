@@ -35,7 +35,6 @@ public class CemSheepModel extends SheepEntityModel<SheepEntity> implements CemM
 	}
 	
 	public static class CemSheepWoolModel extends SheepWoolEntityModel<SheepEntity> implements CemModel{
-		private static final Map<String, String> partNames = new HashMap<>();
 		private final CemModelRegistry registry;
 		
 		public CemSheepWoolModel(CemModelRegistry registry){

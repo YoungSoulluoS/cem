@@ -15,6 +15,15 @@ public class CemStriderModel extends StriderEntityModel<StriderEntity> implement
 	private static final Map<String, String> partNames = new HashMap<>();
 	private final        CemModelRegistry    registry;
 	
+	static{
+		partNames.put("hair_right_top", "right_top_bristle");
+		partNames.put("hair_right_middle", "right_middle_bristle");
+		partNames.put("hair_right_bottom", "right_bottom_bristle");
+		partNames.put("hair_left_top", "left_top_bristle");
+		partNames.put("hair_left_middle", "left_middle_bristle");
+		partNames.put("hair_left_bottom", "left_bottom_bristle");
+	}
+	
 	public CemStriderModel(CemModelRegistry registry, @Nullable Float inflate){
 		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())

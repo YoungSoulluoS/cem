@@ -33,7 +33,7 @@ public class CemVillagerModel<T extends LivingEntity> extends VillagerResembling
 		                                                                .create()));
 		this.registry = registry;
 		this.rotatePart(this.registry.getEntryByPartName("headwear2"), 'x', -90);
-		this.rotatePart(this.registry.getEntryByPartName("arms"), 'x', -43);
+		// this.rotatePart(this.registry.getEntryByPartName("arms"), 'x', -43);
 	}
 	
 	@Override
