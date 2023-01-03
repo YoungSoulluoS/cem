@@ -12,8 +12,8 @@ CCheck out the [Releases](https://github.com/YoungSoulluoS/cemFork/releases) pag
 This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). 
 
 If you want to configure this mod, the installation
-of [modmenu](https://modrinth.com/mod/modmenu), [completeconfig](https://www.curseforge.com/minecraft/mc-mods/completeconfig "completeconfig")
-and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config "cloth api")
+of [modmenu](https://modrinth.com/mod/modmenu), [completeconfig](https://modrinth.com/mod/completeconfig)
+and [Cloth Config API](https://modrinth.com/mod/cloth-config)
 are also required. 
 
 I also recommend installing the ETF mod. It will help fix some visual errors and expand the CEM mod's capabilities. https://modrinth.com/mod/entitytexturefeatures
