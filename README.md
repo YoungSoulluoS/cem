@@ -12,7 +12,7 @@ CCheck out the [Releases](https://github.com/YoungSoulluoS/cemFork/releases) pag
 This mod requires the installation of the [Fabric Loader](https://fabricmc.net/use/ "Fabric Loader"). 
 
 If you want to configure this mod, the installation
-of [modmenu](https://modrinth.com/mod/modmenu), [completeconfig](https://modrinth.com/mod/completeconfig)
+of [Mod Menu](https://modrinth.com/mod/modmenu), [CompleteConfig](https://modrinth.com/mod/completeconfig)
 and [Cloth Config API](https://modrinth.com/mod/cloth-config)
 are also required. 
 
