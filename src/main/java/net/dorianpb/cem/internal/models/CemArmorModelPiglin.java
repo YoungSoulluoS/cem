@@ -102,7 +102,7 @@ public class CemArmorModelPiglin<C extends CemModel, T extends LivingEntity> ext
 	private static <M extends ModelPart> void removeCuboids(M modelPart, Map<CemModelPart, float[]> armorCandidates){
 		if(armorCandidates.containsKey((CemModelPart) modelPart)){
 			for(ModelPart.Cuboid cuboid : modelPart.cuboids){
-				armorCandidates.put((CemModelPart) modelPart, new float[]{cuboid.minX, cuboid.minY, cuboid.minZ, ((CemCuboid) cuboid).isMirrorU()? 1 : 0});
+				armorCandidates.put((CemModelPart) modelPart, new float[]{cuboid.minX, cuboid.minY, cuboid.minZ, ((CemCuboid) cuboid).isMirrorU()? 0 : 0});
 			}
 		}
 		modelPart.cuboids.clear();
