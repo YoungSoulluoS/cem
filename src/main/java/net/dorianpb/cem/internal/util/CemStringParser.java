@@ -19,7 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
-public class CemStringParser{
+public enum CemStringParser{
+	;
 	
 	public static ParsedExpression parse(String expr, CemModelRegistry registry, CemModelEntry parent){
 		Token token = initParseLoop(expr);
@@ -435,7 +436,7 @@ public class CemStringParser{
 				case TIME:
 					MinecraftClient minecraft = MinecraftClient.getInstance();
 					World world = minecraft.world;
-					return (world == null)? 0F : (float) (world.getTime() % 24000L) + minecraft.getTickDelta();
+					return (world == null)? 0.0F : (world.getTime() % 24000L) + minecraft.getTickDelta();
 				case PI:
 					return 3.1415926F;
 				//entity parameters
@@ -520,14 +521,14 @@ public class CemStringParser{
 				case ATAN2 -> (float) MathHelper.atan2(((ParsedExpressionFloat) args.get(0)).eval(env), ((ParsedExpressionFloat) args.get(1)).eval(env));
 				case TORAD -> (float) Math.toRadians(((ParsedExpressionFloat) args.get(0)).eval(env));
 				case TODEG -> (float) Math.toDegrees(((ParsedExpressionFloat) args.get(0)).eval(env));
-				case MIN -> findExtreme(args, env, false);
-				case MAX -> findExtreme(args, env, true);
+				case MIN -> this.findExtreme(args, env, false);
+				case MAX -> this.findExtreme(args, env, true);
 				case CLAMP -> MathHelper.clamp(((ParsedExpressionFloat) args.get(0)).eval(env),
 				                               ((ParsedExpressionFloat) args.get(1)).eval(env),
 				                               ((ParsedExpressionFloat) args.get(2)).eval(env)
 				                              );
 				case ABS -> MathHelper.abs(((ParsedExpressionFloat) args.get(0)).eval(env));
-				case FLOOR -> (float) MathHelper.fastFloor(((ParsedExpressionFloat) args.get(0)).eval(env));
+				case FLOOR -> (float) MathHelper.floor(((ParsedExpressionFloat) args.get(0)).eval(env));
 				case CEIL -> (float) MathHelper.ceil(((ParsedExpressionFloat) args.get(0)).eval(env));
 				case EXP -> (float) Math.exp(((ParsedExpressionFloat) args.get(0)).eval(env));
 				case FRAC -> MathHelper.fractionalPart(((ParsedExpressionFloat) args.get(0)).eval(env));
@@ -818,11 +819,11 @@ public class CemStringParser{
 			else{
 				this.arguments = null;
 			}
-			checkArgs(this.arguments, this.operation.getArgNumber());
+			this.checkArgs(this.arguments, this.operation.getArgNumber());
 		}
 		
 		float eval(Environment env){
-			return operation.eval(arguments, env);
+			return this.operation.eval(this.arguments, env);
 		}
 		
 		@Override
@@ -929,11 +930,11 @@ public class CemStringParser{
 			else{
 				this.arguments = null;
 			}
-			checkArgs(this.arguments, this.operation.getArgNumber());
+			this.checkArgs(this.arguments, this.operation.getArgNumber());
 		}
 		
 		boolean eval(Environment env){
-			return this.operation.eval(arguments, env);
+			return this.operation.eval(this.arguments, env);
 		}
 		
 		@Override
@@ -970,9 +971,9 @@ public class CemStringParser{
 			if(!PATTERN.matcher(token.getName()).find()){
 				throw new IllegalArgumentException("\"" + token.getName() + "\" isn't a reference to a model part");
 			}
-			this.entry = registry.findChild(token.getName().substring(0, token.getName().indexOf(".")), parent);
-			this.val = token.getName().charAt(token.getName().indexOf(".") + 1);
-			this.axis = token.getName().charAt(token.getName().indexOf(".") + 2);
+			this.entry = registry.findChild(token.getName().substring(0, token.getName().indexOf('.')), parent);
+			this.val = token.getName().charAt(token.getName().indexOf('.') + 1);
+			this.axis = token.getName().charAt(token.getName().indexOf('.') + 2);
 		}
 		
 		@Override
@@ -982,11 +983,11 @@ public class CemStringParser{
 		
 		@Override
 		public Float eval(ArrayList<ParsedExpression> args, Environment env){
-			return switch(val){
-				case 't' -> entry.getTranslate(axis);
-				case 'r' -> entry.getModel().getRotation(axis);
-				case 's' -> entry.getModel().getScale(axis);
-				default -> throw new IllegalStateException("Unknown operation \"" + val + "\"");
+			return switch(this.val){
+				case 't' -> this.entry.getTranslate(this.axis);
+				case 'r' -> this.entry.getModel().getRotation(this.axis);
+				case 's' -> this.entry.getModel().getScale(this.axis);
+				default -> throw new IllegalStateException("Unknown operation \"" + this.val + "\"");
 			};
 		}
 	}
@@ -1006,11 +1007,11 @@ public class CemStringParser{
 		}
 		
 		String getName(){
-			return name;
+			return this.name;
 		}
 		
 		ArrayList<Token> getArgs(){
-			return args;
+			return this.args;
 		}
 	}
 	
@@ -1023,7 +1024,7 @@ public class CemStringParser{
 		}
 		
 		float getNum(){
-			return num;
+			return this.num;
 		}
 	}
 	
@@ -1042,39 +1043,39 @@ public class CemStringParser{
 		}
 		
 		private float getLimbAngle(){
-			return limbAngle;
+			return this.limbAngle;
 		}
 		
 		private float getLimbDistance(){
-			return limbDistance;
+			return this.limbDistance;
 		}
 		
 		private float getAge(){
-			return age;
+			return this.age;
 		}
 		
 		private float getHead_yaw(){
-			return head_yaw;
+			return this.head_yaw;
 		}
 		
 		private float getHead_pitch(){
-			return head_pitch;
+			return this.head_pitch;
 		}
 		
 		private Entity getEntity(){
-			return entity;
+			return this.entity;
 		}
 		
 		private TameableEntity getTameableEntity(){
-			return (TameableEntity) entity;
+			return (TameableEntity) this.entity;
 		}
 		
 		private PiglinEntity getPiglinEntity(){
-			return (PiglinEntity) entity;
+			return (PiglinEntity) this.entity;
 		}
 		
 		private LivingEntity getLivingEntity(){
-			return (LivingEntity) entity;
+			return (LivingEntity) this.entity;
 		}
 	}
 	

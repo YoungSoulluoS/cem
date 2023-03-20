@@ -23,17 +23,20 @@ public class CemStraySkeletonRenderer extends StrayEntityRenderer implements Cem
 		super(context);
 		this.registry = CemRegistryManager.getRegistry(getType());
 		try{
-			this.model = new CemSkeletonModel(registry);
-			if(registry.hasShadowRadius()){
-				this.shadowRadius = registry.getShadowRadius();
+			this.model = new CemSkeletonModel(this.registry);
+			if(this.registry.hasShadowRadius()){
+				this.shadowRadius = this.registry.getShadowRadius();
 			}
 			this.features.replaceAll((feature) -> {
 				if(feature instanceof StrayOverlayFeatureRenderer<AbstractSkeletonEntity, SkeletonEntityModel<AbstractSkeletonEntity>>){
 					return new CemStrayOverlayRenderer(this, context.getModelLoader());
 				}
 				else if(feature instanceof ArmorFeatureRenderer){
-					return new ArmorFeatureRenderer<>(this, new CemArmorModelSkeleton<>((CemSkeletonModel) this.model, 0.5F), new CemArmorModelSkeleton<>((CemSkeletonModel) this.model,
-					                                                                                                                      1.0F));
+					return new ArmorFeatureRenderer<>(this,
+					                                  new CemArmorModelSkeleton<>((CemSkeletonModel) this.model, 0.5F),
+					                                  new CemArmorModelSkeleton<>((CemSkeletonModel) this.model, 1.0F),
+					                                  context.getModelManager()
+					);
 				}
 				else{
 					return feature;
@@ -77,14 +80,14 @@ public class CemStraySkeletonRenderer extends StrayEntityRenderer implements Cem
 				}
 			}
 			else{
-				this.registry = CemRegistryManager.getRegistry(CemStraySkeletonRenderer.getType());
+				this.registry = CemRegistryManager.getRegistry(getType());
 				SKIN = origSKIN;
 			}
 			try{
-				this.model = new CemSkeletonModel(registry, 0.25F);
+				this.model = new CemSkeletonModel(this.registry, 0.25F);
 				
 			} catch(Exception e){
-				modelError(e);
+				this.modelError(e);
 			}
 		}
 		
