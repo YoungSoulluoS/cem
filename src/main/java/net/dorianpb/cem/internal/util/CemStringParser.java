@@ -8,8 +8,10 @@ import net.dorianpb.cem.internal.util.CemStringParser.ParsedFunction.ParsedFunct
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.entity.mob.PiglinEntity;
 
 import java.lang.invoke.WrongMethodTypeException;
 import java.security.InvalidParameterException;
@@ -578,13 +580,18 @@ public class CemStringParser{
 		IS_HURT,
 		IS_IN_LAVA,
 		IS_IN_WATER,
+		IS_SUBMERGED_IN_WATER,
 		IS_INVISIBLE,
 		IS_ON_GROUND,
 		IS_RIDDEN,
 		IS_RIDING,
 		IS_SNEAKING,
 		IS_SPRINTING,
+		IS_SITTING,
+		IS_TAMED,
 		IS_WET,
+		IS_DANCING,
+		IS_SLEEPING,
 		TRUE,
 		FALSE,
 		;
@@ -598,14 +605,19 @@ public class CemStringParser{
 				case IS_GLOWING -> env.getEntity().isGlowing();
 				case IS_HURT -> env.getLivingEntity().hurtTime != 0;
 				case IS_IN_LAVA -> env.getEntity().isInLava();
-				case IS_IN_WATER -> env.getEntity().isSubmergedInWater();
+				case IS_IN_WATER -> env.getEntity().isTouchingWater();
+				case IS_SUBMERGED_IN_WATER -> env.getEntity().isSubmergedInWater();
 				case IS_INVISIBLE -> env.getEntity().isInvisible();
 				case IS_ON_GROUND -> env.getEntity().isOnGround();
 				case IS_RIDDEN -> env.getEntity().hasPassengers();
 				case IS_RIDING -> env.getEntity().hasVehicle();
 				case IS_SNEAKING -> env.getEntity().isSneaking();
 				case IS_SPRINTING -> env.getEntity().isSprinting();
+				case IS_SITTING -> env.getTameableEntity().isInSittingPose();
+				case IS_TAMED -> env.getTameableEntity().isTamed();
 				case IS_WET -> env.getEntity().isWet();
+				case IS_DANCING -> env.getPiglinEntity().isDancing();
+				case IS_SLEEPING -> env.getLivingEntity().isSleeping();
 				case TRUE -> true;
 				case FALSE -> false;
 			};
@@ -1051,6 +1063,14 @@ public class CemStringParser{
 		
 		private Entity getEntity(){
 			return entity;
+		}
+		
+		private TameableEntity getTameableEntity(){
+			return (TameableEntity) entity;
+		}
+		
+		private PiglinEntity getPiglinEntity(){
+			return (PiglinEntity) entity;
 		}
 		
 		private LivingEntity getLivingEntity(){

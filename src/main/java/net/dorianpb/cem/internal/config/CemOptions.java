@@ -6,11 +6,11 @@ public interface CemOptions{
 	};
 	
 	default boolean useOptifineFolder(){
-		return false;
+		return true;
 	}
 	
 	default boolean useTransparentParts(){
-		return true;
+		return false;
 	}
 	
 	default boolean useOldAnimations(){

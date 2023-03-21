@@ -105,9 +105,9 @@ public class CemModelEntry{
 					
 					                     ((box.getCoordinates().get(2).floatValue() + ((this.gen == 0)? translate[2] : 0)) * ((this.invertAxis[2])? -1 : 1)) -
 					                     ((this.invertAxis[2])? box.getCoordinates().get(5).floatValue() : 0),
-					                     box.getCoordinates().get(3).intValue(),
-					                     box.getCoordinates().get(4).intValue(),
-					                     box.getCoordinates().get(5).intValue(),
+					                     box.getCoordinates().get(3).floatValue(),
+					                     box.getCoordinates().get(4).floatValue(),
+					                     box.getCoordinates().get(5).floatValue(),
 					                     box.getSizeAdd().floatValue(),
 					                     data.getMirrorTexture()[0],
 					                     data.getMirrorTexture()[1],
@@ -128,9 +128,9 @@ public class CemModelEntry{
 					
 					                     ((box.getCoordinates().get(2).floatValue() + ((this.gen == 0)? translate[2] : 0)) * ((this.invertAxis[2])? -1 : 1)) -
 					                     ((this.invertAxis[2])? box.getCoordinates().get(5).floatValue() : 0),
-					                     box.getCoordinates().get(3).intValue(),
-					                     box.getCoordinates().get(4).intValue(),
-					                     box.getCoordinates().get(5).intValue(),
+					                     box.getCoordinates().get(3).floatValue(),
+					                     box.getCoordinates().get(4).floatValue(),
+					                     box.getCoordinates().get(5).floatValue(),
 					                     box.getSizeAdd().floatValue(),
 					                     data.getMirrorTexture()[0],
 					                     data.getMirrorTexture()[1],
@@ -140,6 +140,7 @@ public class CemModelEntry{
 				}
 			}
 		}
+		
 		//pivot point is relative to parent, so 0,0,0 means "same as parent"
 		//remember to invert them okay
 		//pivot points are given to me in perfect form, i think
@@ -309,9 +310,9 @@ public class CemModelEntry{
 		public void addCuboid(float x,
 		                      float y,
 		                      float z,
-		                      int sizeX,
-		                      int sizeY,
-		                      int sizeZ,
+		                      float sizeX,
+		                      float sizeY,
+		                      float sizeZ,
 		                      float extra,
 		                      boolean mirrorU,
 		                      boolean mirrorV,
@@ -338,9 +339,9 @@ public class CemModelEntry{
 		public void addCuboid(float x,
 		                      float y,
 		                      float z,
-		                      int sizeX,
-		                      int sizeY,
-		                      int sizeZ,
+		                      float sizeX,
+		                      float sizeY,
+		                      float sizeZ,
 		                      float extra,
 		                      boolean mirrorU,
 		                      boolean mirrorV,
