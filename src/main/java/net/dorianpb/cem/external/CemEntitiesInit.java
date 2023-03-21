@@ -4,6 +4,8 @@ import net.dorianpb.cem.external.renderers.*;
 import net.dorianpb.cem.internal.api.CemEntityInitializer;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EntityType;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
 
 public class CemEntitiesInit extends CemEntityInitializer{
 	@Override
@@ -16,15 +18,33 @@ public class CemEntitiesInit extends CemEntityInitializer{
 		register("creeper_charge");
 		register(EntityType.CAT, CemCatRenderer::new);
 		register(EntityType.BLAZE, CemBlazeRenderer::new);
+		// register(EntityType.SQUID, CemSquidRenderer::new);
+		// register(EntityType.SQUID, (ctx) -> new CemSquidRenderer(ctx, EntityType.SQUID));
 		register(EntityType.ARMOR_STAND, CemArmorStandRenderer::new);
+		register(EntityType.AXOLOTL, CemAxolotlRenderer::new);
+		register(EntityType.ENDERMITE, CemEndermiteRenderer::new);
 		register(EntityType.OCELOT, CemOcelotRenderer::new);
 		register(EntityType.BAT, CemBatRenderer::new);
 		register(EntityType.BEE, CemBeeRenderer::new);
+		register(EntityType.SILVERFISH, CemSilverfishRenderer::new);
+		register(EntityType.PARROT, CemParrotRenderer::new);
 		register(EntityType.CHICKEN, CemChickenRenderer::new);
 		register(EntityType.COW, CemCowRenderer::new);
+		register(EntityType.POLAR_BEAR, CemPolarBearRenderer::new);
+		register(EntityType.PANDA, CemPandaRenderer::new);
+		register(EntityType.GOAT, CemGoatRenderer::new);
+		register(EntityType.RAVAGER, CemRavagerRenderer::new);
+		register(EntityType.HOGLIN, CemHoglinRenderer::new);
+		register(EntityType.ZOGLIN, CemZoglinRenderer::new);
 		register(EntityType.SHEEP, CemSheepRenderer::new);
 		register("sheep_wool");
 		register(EntityType.PIG, CemPigRenderer::new);
+		register(EntityType.STRIDER, CemStriderRenderer::new);
+		register(EntityType.TURTLE, CemTurtleRenderer::new);
+		register(EntityType.LLAMA, (ctx) -> new CemLlamaRenderer(ctx, EntityType.LLAMA));
+		register("llama_decor");
+		register(EntityType.TRADER_LLAMA, (ctx) -> new CemTraderLlamaRenderer(ctx, EntityType.TRADER_LLAMA));
+		register("trader_llama_decor");
 		register(BlockEntityType.BANNER, CemBannerRenderer::new);
 		register(EntityType.MOOSHROOM, CemMooshroomRenderer::new);
 		register(EntityType.ZOMBIE, CemZombieRenderer::new);
@@ -49,6 +69,7 @@ public class CemEntitiesInit extends CemEntityInitializer{
 		register(EntityType.WANDERING_TRADER, CemWanderingTraderRenderer::new);
 		register(EntityType.ZOMBIE_VILLAGER, CemZombieVillagerRenderer::new);
 		register(EntityType.RABBIT, CemRabbitRenderer::new);
+		register(EntityType.VEX, CemVexRenderer::new);
 		register(EntityType.GIANT, CemGiantZombieRenderer::new);
 		register(EntityType.WOLF, CemWolfRenderer::new);
 		register(EntityType.MINECART, (ctx) -> new CemMinecartRenderer(ctx, EntityType.MINECART));
@@ -62,13 +83,20 @@ public class CemEntitiesInit extends CemEntityInitializer{
 		register(EntityType.ELDER_GUARDIAN, CemElderGuardianRenderer::new);
 		register(EntityType.ENDER_DRAGON, CemEnderDragonRenderer::new);
 		register(EntityType.HORSE, CemHorseRenderer::new);
+		register(EntityType.DONKEY, (ctx) -> new CemDonkeyRenderer(ctx, 1.0F, EntityModelLayers.DONKEY));
+		register(EntityType.MULE, (ctx) -> new CemDonkeyRenderer(ctx, 1.0F, EntityModelLayers.MULE));
 		register(EntityType.ZOMBIE_HORSE, (ctx) -> new CemUndeadHorseRenderer(ctx, EntityType.ZOMBIE_HORSE));
 		register(EntityType.SKELETON_HORSE, (ctx) -> new CemUndeadHorseRenderer(ctx, EntityType.SKELETON_HORSE));
 		register(EntityType.WITCH, CemWitchRenderer::new);
 		register(EntityType.IRON_GOLEM, CemIronGolemRenderer::new);
+		register(EntityType.SNOW_GOLEM, CemSnowGolemRenderer::new);
+		register(EntityType.WITHER, CemWitherRenderer::new);
+		register(EntityType.SHULKER, CemShulkerRenderer::new);
 		register(EntityType.PHANTOM, CemPhantomRenderer::new);
 		register(EntityType.GHAST, CemGhastRenderer::new);
 		register(EntityType.SALMON, CemSalmonRenderer::new);
+		register(EntityType.COD, CemCodRenderer::new);
+		register(EntityType.DOLPHIN, CemDolphinRenderer::new);
 		register(EntityType.TRIDENT, CemTridentRenderer::new);
 	}
 }
