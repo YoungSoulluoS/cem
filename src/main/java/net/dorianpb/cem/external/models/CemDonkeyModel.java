@@ -6,13 +6,13 @@ import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBu
 import net.minecraft.client.model.Dilation;
 import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.model.TexturedModelData;
-import net.minecraft.client.render.entity.model.HorseEntityModel;
-import net.minecraft.entity.passive.HorseBaseEntity;
+import net.minecraft.client.render.entity.model.DonkeyEntityModel;
+import net.minecraft.entity.passive.AbstractDonkeyEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-public class CemHorseModel<T extends HorseBaseEntity> extends HorseEntityModel<T> implements CemModel{
+public class CemDonkeyModel<T extends AbstractDonkeyEntity> extends DonkeyEntityModel<T> implements CemModel{
 	private static final Map<String, String>         partNames           = new HashMap<>();
 	private static final Map<String, List<String>>   familyTree          = new LinkedHashMap<>();
 	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
@@ -35,6 +35,8 @@ public class CemHorseModel<T extends HorseBaseEntity> extends HorseEntityModel<T
 		partNames.put("child_back_left_leg", "left_hind_baby_leg");
 		partNames.put("back_right_leg", "right_hind_leg");
 		partNames.put("child_back_right_leg", "right_hind_baby_leg");
+		partNames.put("chest_right", "right_chest");
+		partNames.put("chest_left", "left_chest");
 	}
 	
 	static{
@@ -51,11 +53,11 @@ public class CemHorseModel<T extends HorseBaseEntity> extends HorseEntityModel<T
 		modelTransformFixes.put("child_front_right_leg", ModelTransform.pivot(-4.0F, 14.0F, -10.0F));
 		modelTransformFixes.put("child_front_left_leg", ModelTransform.pivot(4.0F, 14.0F, -10.0F));
 		modelTransformFixes.put("child_back_right_leg", ModelTransform.pivot(-4.0F, 14.0F, 8.0F));
-		modelTransformFixes.put("child_back_left_leg", ModelTransform.pivot(-.0F, 14.0F, 8.0F));
+		modelTransformFixes.put("child_back_left_leg", ModelTransform.pivot(4.0F, 14.0F, 8.0F));
 		modelTransformFixes.put("tail", ModelTransform.pivot(0.0F, -8.0F, 5.0F));
 	}
 	
-	public CemHorseModel(CemModelRegistry registry, @Nullable Float inflate){
+	public CemDonkeyModel(CemModelRegistry registry, @Nullable Float inflate){
 		super(registry.prepRootPart(new CemPrepRootPartParamsBuilder().setPartNameMap(partNames)
 		                                                              .setFamilyTree(familyTree)
 		                                                              .setVanillaReferenceModelFactory(() -> TexturedModelData.of(getModelData(Dilation.NONE), 0, 0)

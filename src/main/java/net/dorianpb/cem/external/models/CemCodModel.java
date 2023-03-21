@@ -4,33 +4,27 @@ import net.dorianpb.cem.internal.api.CemModel;
 import net.dorianpb.cem.internal.models.CemModelRegistry;
 import net.dorianpb.cem.internal.models.CemModelRegistry.CemPrepRootPartParamsBuilder;
 import net.minecraft.client.model.ModelTransform;
-import net.minecraft.client.render.entity.model.WolfEntityModel;
-import net.minecraft.entity.passive.WolfEntity;
+import net.minecraft.client.render.entity.model.CodEntityModel;
+import net.minecraft.entity.passive.CodEntity;
 
 import java.util.*;
 
-public class CemWolfModel extends WolfEntityModel<WolfEntity> implements CemModel{
+public class CemCodModel extends CodEntityModel<CodEntity> implements CemModel{
 	private static final Map<String, String>         partNames           = new HashMap<>();
-	private static final Map<String, List<String>> familyTree = new LinkedHashMap<>();
+	private static final Map<String, List<String>>   familyTree          = new LinkedHashMap<>();
 	private static final Map<String, ModelTransform> modelTransformFixes = new HashMap<>();
 	private final        CemModelRegistry            registry;
 	
 	static{
-		partNames.put("leg1", "right_hind_leg");
-		partNames.put("leg2", "left_hind_leg");
-		partNames.put("leg3", "right_front_leg");
-		partNames.put("leg4", "left_front_leg");
-		partNames.put("mane", "upper_body");
+		partNames.put("tail", "tail_fin");
+		partNames.put("fin_left", "left_fin");
+		partNames.put("fin_right", "right_fin");
+		partNames.put("fin_back", "top_fin");
 	}
 	
-	static{
-		modelTransformFixes.put("upper_body", ModelTransform.pivot(-1.0F, 14.0F, 2.0F));
-		modelTransformFixes.put("tail", ModelTransform.pivot(-1.0F, 12.0F, 10.0F));
-	}
-	
-	public CemWolfModel(CemModelRegistry registry){
-		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)	
-																		.setFamilyTree(familyTree)
+	public CemCodModel(CemModelRegistry registry){
+		super(registry.prepRootPart((new CemPrepRootPartParamsBuilder()).setPartNameMap(partNames)
+		                                                                .setFamilyTree(familyTree)
 		                                                                .setVanillaReferenceModelFactory(() -> getTexturedModelData().createModel())
 		                                                                .setFixes(modelTransformFixes)
 		                                                                .create()));
@@ -38,7 +32,7 @@ public class CemWolfModel extends WolfEntityModel<WolfEntity> implements CemMode
 	}
 	
 	@Override
-	public void setAngles(WolfEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch){
+	public void setAngles(CodEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch){
 		super.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 		this.registry.applyAnimations(limbAngle, limbDistance, animationProgress, headYaw, headPitch, entity);
 	}
